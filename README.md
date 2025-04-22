@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./images/AttendanceAppIcon.png" width="150" alt="Attendance Tracker Logo"/>
+  <img src="./images/AttendanceApp.png" width="150" alt="Attendance Tracker Logo"/>
 </p>
 
 <h1 align="center">📘 Attendance Tracker</h1>
