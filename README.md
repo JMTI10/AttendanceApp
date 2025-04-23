@@ -4,7 +4,7 @@
 
 <h1 align="center">📘 Attendance Tracker</h1>
 <p align="center">
-  A minimal, mobile-first class attendance tracker built with React Native.<br/>
+  A minimal, mobile attendance tracker built with React Native.<br/>
   ✅ Mark attendance • 🧠 Save to file • 📤 Export backups • 🚫 No cloud nonsense
 </p>
 
