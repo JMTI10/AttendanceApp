@@ -2,7 +2,8 @@ import { useRouter } from 'expo-router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { auth } from '../firebaseConfig';
+import { firebaseAuth as auth } from '../firebaseConfig';
+
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState('');
