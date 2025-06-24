@@ -1,15 +1,15 @@
 import { Stack, useRouter } from 'expo-router';
 import { onAuthStateChanged } from 'firebase/auth';
-import { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
-import { getAuthInstance } from '../firebaseConfig'; // or adjust path as needed
+import React, { useEffect, useState } from 'react';
+import { getAuthInstance } from '../firebaseConfig';
 
 export default function RootLayout() {
   const router = useRouter();
-  const [checkingAuth, setCheckingAuth] = useState(true);
+  const [checking, setChecking] = useState(true);
+  const auth = getAuthInstance();
 
   useEffect(() => {
-    const auth = getAuthInstance();
+    const auth = getAuthInstance(); // ✅ call this INSIDE useEffect
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -17,19 +17,13 @@ export default function RootLayout() {
       } else {
         router.replace('/login');
       }
-      setCheckingAuth(false);
+      setChecking(false);
     });
 
-    return () => unsubscribe();
+    return unsubscribe;
   }, []);
 
-  if (checkingAuth) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0C0F14' }}>
-        <Text style={{ color: '#fff' }}>Loading...</Text>
-      </View>
-    );
-  }
+  if (checking) return null;
 
   return <Stack screenOptions={{ headerShown: false }} />;
 }
