@@ -10,17 +10,17 @@ export default function RootLayout() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        router.replace('./tabs'); // user is logged in
+        router.replace('/(tabs)');
       } else {
-        router.replace('./login'); // not logged in
+        router.replace('/login');
       }
-      setCheckingAuth(false); // allow rendering after redirect
+      setCheckingAuth(false);
     });
 
     return () => unsubscribe();
   }, []);
 
-  if (checkingAuth) return null; // or a loading spinner
+  if (checkingAuth) return null;
 
   return <Stack screenOptions={{ headerShown: false }} />;
 }
