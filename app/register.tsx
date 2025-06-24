@@ -8,33 +8,26 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-  const auth = getAuthInstance();
-  
+
   const handleRegister = async () => {
     try {
+      const auth = getAuthInstance();
       await createUserWithEmailAndPassword(auth, email, password);
       router.replace('/(tabs)');
-    } catch (error) {
-      console.error('Register error:', error);
+    } catch (error: any) {
+      console.error('Registration error:', error.message);
     }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Create Account</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-        autoCapitalize="none"
-        keyboardType="email-address"
-      />
+      <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
       <TextInput
         style={styles.input}
         placeholder="Password"
-        onChangeText={setPassword}
         value={password}
+        onChangeText={setPassword}
         secureTextEntry
       />
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
@@ -48,10 +41,10 @@ export default function RegisterScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 24, backgroundColor: '#0C0F14' },
+  container: { flex: 1, padding: 24, justifyContent: 'center', backgroundColor: '#0C0F14' },
   title: { fontSize: 28, fontWeight: 'bold', color: '#fff', marginBottom: 24 },
-  input: { backgroundColor: '#1E222A', padding: 16, borderRadius: 8, marginBottom: 16, color: '#fff' },
-  button: { backgroundColor: '#FF6C44', padding: 16, borderRadius: 8, alignItems: 'center' },
+  input: { backgroundColor: '#1E222A', padding: 16, borderRadius: 10, marginBottom: 16, color: '#fff' },
+  button: { backgroundColor: '#FF6C44', padding: 16, borderRadius: 10, alignItems: 'center' },
   buttonText: { color: '#fff', fontWeight: 'bold' },
-  link: { color: '#aaa', textAlign: 'center', marginTop: 24 }
+  link: { color: '#aaa', marginTop: 24, textAlign: 'center' }
 });

@@ -1,15 +1,14 @@
 import { Stack, useRouter } from 'expo-router';
 import { onAuthStateChanged } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAuthInstance } from '../firebaseConfig';
 
 export default function RootLayout() {
   const router = useRouter();
   const [checking, setChecking] = useState(true);
-  const auth = getAuthInstance();
 
   useEffect(() => {
-    const auth = getAuthInstance(); // ✅ call this INSIDE useEffect
+    const auth = getAuthInstance(); // ✅ safely inside useEffect
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -20,7 +19,7 @@ export default function RootLayout() {
       setChecking(false);
     });
 
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   if (checking) return null;
