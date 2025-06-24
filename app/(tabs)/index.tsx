@@ -2,11 +2,13 @@ import { format } from 'date-fns';
 import { onValue, ref, set } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { auth, db } from '../../firebaseConfig';
+import { db, getAuthInstance } from '../../firebaseConfig';
+
 
 export default function AttendanceTab() {
   const [history, setHistory] = useState<{ [date: string]: string } | null>(null);
   const today = format(new Date(), 'yyyy-MM-dd');
+  const auth = getAuthInstance();
 
   const markAttendance = async (status: string) => {
     const user = auth.currentUser;

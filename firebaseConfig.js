@@ -3,7 +3,6 @@ import { getApps, initializeApp } from 'firebase/app';
 import { getReactNativePersistence, initializeAuth } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyD-uBnjuP5CcKCLYrFkL3eo3V-ngeFZVzo",
   authDomain: "attendace-checker-101.firebaseapp.com",
@@ -18,11 +17,14 @@ const firebaseConfig = {
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
-export const firebaseAuth = initializeAuth(app, {
-  persistence: getReactNativePersistence(AsyncStorage),
-});
+let authInstance;
+export const getAuthInstance = () => {
+  if (!authInstance) {
+    authInstance = initializeAuth(app, {
+      persistence: getReactNativePersistence(AsyncStorage)
+    });
+  }
+  return authInstance;
+};
 
-
-const db = getDatabase(app);W
-
-export { firebaseAuth as auth, db };
+export const db = getDatabase(app);
