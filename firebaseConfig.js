@@ -2,9 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
 
-export const auth = getAuth(app);
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyD-uBnjuP5CcKCLYrFkL3eo3V-ngeFZVzo",
   authDomain: "attendace-checker-101.firebaseapp.com",
@@ -17,4 +14,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
 export const db = getDatabase(app);
