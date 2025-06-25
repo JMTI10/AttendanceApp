@@ -1,0 +1,33 @@
+# Node & Yarn
+node_modules/
+yarn-error.log
+package-lock.json        # or yarn.lock—keep one, ignore the other
+
+# Expo & Metro
+.expo/
+.expo-shared/
+# If you’re using EAS local builds
+*.db
+*.jks
+
+# Xcode / iOS build artifacts
+ios/build/
+ios/Pods/
+ios/DerivedData/
+*.xcworkspacedata
+xcuserdata/
+
+# Android build artifacts
+android/.gradle/
+android/app/build/
+android/build/
+
+# VS Code settings
+.vscode/
+
+# environment files
+*.env
+.xcode.env.local
+
+# macOS filesystem
+.DS_Store
