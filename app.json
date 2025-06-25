@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "sdkVersion": "49.0.0",
+    "name": "MyAttendanceApp",
+    "slug": "attendance-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/AttendanceApp.png",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "ios": {
+      "bundleIdentifier": "com.yourname.attendanceapp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.yourname.attendanceapp",
+      "versionCode": 1
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9ea879b9-a680-474b-8fcf-e5c4ab0a2640"
+      }
+    }
+  }
+}
