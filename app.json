@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/AttendanceApp.png",
+    "jsEngine": "hermes",
     "platforms": [
       "ios",
       "android"
@@ -17,7 +18,8 @@
     },
     "ios": {
       "bundleIdentifier": "com.yourname.attendanceapp",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.0",
+      "jsEngine": "jcs"
     },
     "android": {
       "package": "com.yourname.attendanceapp",
