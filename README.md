@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="AttendanceApp.png" alt="AttendanceApp Logo" width="200"/>
+  <img src="/assets/AttendanceApp.png" alt="AttendanceApp Logo" width="200"/>
 </p>
 
 <h1 align="center">📘 AttendanceApp</h1>
